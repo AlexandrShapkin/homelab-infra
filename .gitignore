@@ -1,0 +1,16 @@
+*.retry
+*.log
+*.bak
+*.swp
+__pycache__/
+*.pyc
+*.tar.gz
+*.zip
+
+# wg
+*.key
+*.conf
+
+# ansible
+secrets.yml
+vault_pass.txt
