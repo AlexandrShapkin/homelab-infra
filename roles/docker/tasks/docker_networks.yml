@@ -1,0 +1,28 @@
+- name: Установка зависимостей python3
+  dnf:
+    name:
+      - python3-pip
+      - python3-packaging
+    state: present
+
+- name: Установка зависимостей community.docker
+  pip:
+    name:
+      - docker
+      - requests
+    executable: /usr/bin/pip3.12
+
+- name: Создание internal-сети
+  community.docker.docker_network:
+    name: internal
+    driver: bridge
+    ipam_config:
+      - subnet: 172.20.0.0/24
+    internal: true
+
+- name: Создание proxy-сети
+  community.docker.docker_network:
+    name: proxy
+    driver: bridge
+    ipam_config:
+      - subnet: 172.21.0.0/24

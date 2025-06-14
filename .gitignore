@@ -14,3 +14,7 @@ __pycache__/
 # ansible
 secrets.yml
 vault_pass.txt
+vault.yml
+
+# vs code
+.vscode

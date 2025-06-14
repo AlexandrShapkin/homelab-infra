@@ -1,0 +1,39 @@
+- name: Установка Wireguard
+  dnf:
+    name: wireguard-tools
+    state: present
+    update_cache: true
+
+- name: Включить IP forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: "1"
+    state: present
+    reload: yes
+
+- name: Создать /etc/wireguard
+  file:
+    path: /etc/wireguard
+    state: directory
+    mode: "0700"
+
+- name: Скопировать конфигурацию сервера
+  template:
+    src: wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Включить и запустить wireguard
+  systemd:
+    name: wg-quick@wg0
+    enabled: true
+    state: started
+
+- name: Открыть порт 51820/udp в firewalld
+  ansible.posix.firewalld:
+    port: 51820/udp
+    permanent: yes
+    state: enabled
+    immediate: yes
