@@ -64,9 +64,10 @@ git clone https://github.com/AlexandrShapkin/homelab-infra.git
 cd homelab-infra
 
 # 2. Обновить inventory под своё окружение
-vim inventory/hosts
+vim inventory/hosts.yml
 
 # 3. Создать файл vault_pass.txt в котором разместить пароль от хранилища 
+echo "<пароль от хранилища>" > vault_pass.txt
 
 # 4. Создать vault с требуемой информацией
 # (см. inventory/group_vars/servers/vault.example.yml)
