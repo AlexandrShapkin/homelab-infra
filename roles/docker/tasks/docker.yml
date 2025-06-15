@@ -8,8 +8,8 @@
 
 - name: Добавление Docker репозитория
   get_url:
-    url: https://download.docker.com/linux/centos/docker-ce.repo
-    dest: /etc/yum.repos.d/docker-ce.repo
+    url: "{{ docker_repo_url }}"
+    dest: "{{ docker_repo_dest }}"
 
 - name: Установка Docker
   dnf:

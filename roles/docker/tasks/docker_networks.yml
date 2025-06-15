@@ -10,14 +10,14 @@
     name:
       - docker
       - requests
-    executable: /usr/bin/pip3.12
+    executable: "{{ pip_path }}"
 
 - name: Создание internal-сети
   community.docker.docker_network:
     name: internal
     driver: bridge
     ipam_config:
-      - subnet: 172.20.0.0/24
+      - subnet: "{{ docker_interna_ip }}"
     internal: true
 
 - name: Создание proxy-сети
@@ -25,4 +25,4 @@
     name: proxy
     driver: bridge
     ipam_config:
-      - subnet: 172.21.0.0/24
+      - subnet: "{{ docker_proxy_ip }}"

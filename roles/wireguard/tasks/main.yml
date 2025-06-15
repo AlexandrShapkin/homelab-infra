@@ -11,29 +11,29 @@
     state: present
     reload: yes
 
-- name: Создать /etc/wireguard
+- name: Создать {{ wg_path }}
   file:
-    path: /etc/wireguard
+    path: "{{ wg_path }}"
     state: directory
     mode: "0700"
 
-- name: Скопировать конфигурацию сервера
+- name: Скопировать конфигурацию сервера {{ wg_path }}/{{ wg_conf }}
   template:
-    src: wg0.conf.j2
-    dest: /etc/wireguard/wg0.conf
-    owner: root
-    group: root
+    src: "{{ wg_conf }}.j2"
+    dest: "{{ wg_path }}/{{ wg_conf }}"
+    owner: "{{ wg_conf_owner }}"
+    group: "{{ wg_conf_owner_group }}"
     mode: "0600"
 
-- name: Включить и запустить wireguard
+- name: Включить и запустить {{ wg_daemon_name }}
   systemd:
-    name: wg-quick@wg0
+    name: "{{ wg_daemon_name }}"
     enabled: true
     state: started
 
-- name: Открыть порт 51820/udp в firewalld
+- name: Открыть порт {{ wg_firewall_port }} в firewalld
   ansible.posix.firewalld:
-    port: 51820/udp
+    port: "{{ wg_firewall_port }}"
     permanent: yes
     state: enabled
     immediate: yes
