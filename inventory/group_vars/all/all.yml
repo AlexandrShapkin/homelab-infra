@@ -1,0 +1,14 @@
+wg_path: "/etc/wireguard"
+wg_conf: "wg0.conf"
+wg_conf_owner: "root"
+wg_conf_owner_group: "root"
+wg_daemon_name: "wg-quick@wg0"
+wg_firewall_port: "51820/udp"
+
+docker_repo_url: "https://download.docker.com/linux/centos/docker-ce.repo"
+docker_repo_dest: "/etc/yum.repos.d/docker-ce.repo"
+
+docker_internal_ip: "172.20.0.0/24"
+docker_proxy_ip: "172.21.0.0/24"
+
+pip_path: "/usr/bin/pip3.12"
