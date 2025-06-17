@@ -17,13 +17,78 @@
     state: directory
     mode: "0700"
 
+- name: Создать {{ wg_peers_path }}
+  file:
+    path: "{{ wg_peers_path }}"
+    state: directory
+    mode: "0644"
+  delegate_to: localhost
+
+- name: Проверить существование конфиг-файла
+  stat:
+    path: "{{ wg_path }}/{{ wg_conf }}"
+  register: wg_register_config_file
+
+- name: Сгенерировать приватный ключ сервера, если он не существует
+  when:
+    - not wg_register_config_file.stat.exists
+    - wg_server_private_key is not defined
+  block:
+    - name: Сгенерировать приватный ключ сервера
+      command: "wg genkey"
+      register: wg_register_server_private_key
+      changed_when: false
+      check_mode: false
+
+    - name: Установить факт приватного ключа сервера
+      set_fact:
+        wg_server_private_key: "{{ wg_register_server_private_key.stdout }}"
+
+- name: Считать приватный ключ сервера, если он существует
+  when:
+    - wg_register_config_file.stat.exists
+    - wg_server_private_key is not defined
+  block:
+    - name: Считать файл конфига
+      slurp:
+        src: "{{ wg_path }}/{{ wg_conf }}"
+      register: wg_register_server_config
+
+    - name: Установить факт приватного ключа
+      set_fact:
+        wg_server_private_key: >-
+          {{ wg_register_server_config.content | b64decode |
+             regex_findall('PrivateKey\s*=\s*(.*)$', multiline=True) | first }}
+
+- name: Сгенерировать публичный ключ сервера
+  command: "wg pubkey"
+  args:
+    stdin: "{{ wireguard_server_private_key }}"
+  register: wg_register_server_public_key
+  changed_when: false
+  check_mode: false
+
+- name: Установить факт публичного ключа
+  set_fact:
+    wg_server_public_key: "{{ wg_register_server_public_key.stdout }}"
+
 - name: Скопировать конфигурацию сервера {{ wg_path }}/{{ wg_conf }}
   template:
-    src: "{{ wg_conf }}.j2"
+    src: "server.conf.j2"
     dest: "{{ wg_path }}/{{ wg_conf }}"
     owner: "{{ wg_conf_owner }}"
     group: "{{ wg_conf_owner_group }}"
     mode: "0600"
+
+- name: Скопировать конфигурацию пира user@localhost:{{ wg_peers_path }}/peer.name.conf
+  template:
+    src: "client.conf.j2"
+    dest: "{{ wg_peers_path }}/{{ item.name }}.conf"
+    owner: "{{ wg_conf_owner }}"
+    group: "{{ wg_conf_owner_group }}"
+    mode: "0644"
+  loop: "{{ wg_peers }}"
+  delegate_to: localhost
 
 - name: Включить и запустить {{ wg_daemon_name }}
   systemd:
@@ -32,8 +97,8 @@
     state: started
 
 - name: Открыть порт {{ wg_firewall_port }} в firewalld
-  ansible.posix.firewalld:
-    port: "{{ wg_firewall_port }}"
+  firewalld:
+    port: "{{ wg_public_port }}/udp"
     permanent: yes
     state: enabled
     immediate: yes

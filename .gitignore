@@ -15,6 +15,8 @@ __pycache__/
 secrets.yml
 vault_pass.txt
 vault.yml
+inventory/host_vars/alma-server.yml
+inventory/host_vars/localhost.yml
 
 # vs code
 .vscode

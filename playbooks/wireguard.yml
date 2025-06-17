@@ -1,5 +1,5 @@
 - name: Установка и конфигурация WireGuard
-  hosts: all
+  hosts: servers
   become: true
   vars_files:
     - "../inventory/group_vars/servers/vault.yml"
