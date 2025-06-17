@@ -1,5 +1,5 @@
 - name: Установка и конфигурация Docker
-  hosts: all
+  hosts: servers
   become: true
   roles:
     - docker
