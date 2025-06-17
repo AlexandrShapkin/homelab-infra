@@ -17,7 +17,7 @@
     name: internal
     driver: bridge
     ipam_config:
-      - subnet: "{{ docker_interna_ip }}"
+      - subnet: "{{ docker_internal_ip }}"
     internal: true
 
 - name: Создание proxy-сети
