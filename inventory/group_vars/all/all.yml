@@ -1,7 +1,17 @@
 docker_repo_url: "https://download.docker.com/linux/centos/docker-ce.repo"
 docker_repo_dest: "/etc/yum.repos.d/docker-ce.repo"
 
-docker_internal_ip: "172.20.0.0/24"
-docker_proxy_ip: "172.21.0.0/24"
+# Используется как {{ docker_internal_net }}.{{ service.net_addr }}
+docker_internal_net: "172.20.0"
+dokcer_internal_mask: "24"
+docker_internal_ip: "{{ docker_internal_net }}.0/{{ dokcer_internal_mask }}"
+docker_internal_name: "internal_net"
+# Используется как {{ docker_proxy_net }}.{{ service.net_addr }}
+docker_proxy_net: "172.21.0"
+docker_proxy_mask: "24"
+docker_proxy_ip: "{{ docker_proxy_net }}.0/{{ docker_proxy_mask }}"
+docker_proxy_name: "proxy_net"
+
+traefik_resolver: "letsencrypt"
 
 pip_path: "/usr/bin/pip3.12"

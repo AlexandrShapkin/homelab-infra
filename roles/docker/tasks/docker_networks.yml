@@ -14,7 +14,7 @@
 
 - name: Создание internal-сети
   community.docker.docker_network:
-    name: internal
+    name: "{{ docker_internal_name }}"
     driver: bridge
     ipam_config:
       - subnet: "{{ docker_internal_ip }}"
@@ -22,7 +22,7 @@
 
 - name: Создание proxy-сети
   community.docker.docker_network:
-    name: proxy
+    name: "{{ docker_proxy_name }}"
     driver: bridge
     ipam_config:
       - subnet: "{{ docker_proxy_ip }}"
