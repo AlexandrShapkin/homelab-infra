@@ -1,0 +1,22 @@
+postgres:
+  version: "latest"
+  container_name: "postgres"
+  directory: "/opt/postgres"
+  port: "5430"
+  user: "user"
+  volume_path: "./pgdata"
+  net_addr: "13"
+  resources:
+    limits:
+      cpus: "0.50"
+      memory: "512M"
+    reservations:
+      cpus: "0.25"
+      memory: "256M"
+  max_connections: 100
+  shared_buffers: 256MB
+  effective_cache_size: 768MB
+  maintenance_work_mem: 64MB
+  checkpoint_completion_target: 0.7
+  wal_buffers: 16MB
+  default_statistics_target: 100

@@ -1,0 +1,2 @@
+- name: Положить docker-compose.yml
+  command: "docker compose -f {{ postgres.directory }}/docker-compose.yml down"

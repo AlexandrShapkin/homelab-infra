@@ -1,0 +1,15 @@
+- name: Сконфигурировать postgres и положить контейнер если требуется
+  hosts: servers
+  become: true
+  roles:
+    - role: postgres
+      vars:
+        compose_action: "down"
+
+- name: Запустить контейнер
+  hosts: servers
+  become: true
+  roles:
+    - role: postgres
+      vars:
+        compose_action: "up"

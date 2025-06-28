@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: "postgres:{{ postgres.version }}"
+    container_name: "{{ postgres.container_name }}"
+    environment:
+      POSTGRES_USER: "{{ postgres.user }}"
+      POSTGRES_PASSWORD: "{{ postgres_db_pass }}"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    networks:
+      {{ docker_internal_name }}:
+        ipv4_address: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
+      {{ docker_proxy_name }}:
+        ipv4_address: "{{ docker_proxy_net }}.{{ postgres.net_addr }}"
+    ports:
+      - "{{ postgres.port }}:5432"
+    volumes:
+      - "{{ postgres.volume_path }}:/var/lib/postgresql/data/pgdata"
+    command: >
+      postgres -c listen_addresses='*'
+               -c max_connections={{ postgres.max_connections }}
+               -c shared_buffers={{ postgres.shared_buffers }}
+               -c effective_cache_size={{ postgres.effective_cache_size }}
+               -c maintenance_work_mem={{ postgres.maintenance_work_mem }}
+               -c checkpoint_completion_target={{ postgres.checkpoint_completion_target }}
+               -c wal_buffers={{ postgres.wal_buffers }}
+               -c default_statistics_target={{ postgres.default_statistics_target }}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U {{ postgres.user }} -d postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+
+networks:
+  {{ docker_internal_name }}:
+    external: true
+  {{ docker_proxy_name }}:
+    external: true
