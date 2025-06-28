@@ -1,0 +1,31 @@
+services:
+  traefik:
+    image: traefik:latest
+    container_name: {{ traefik.container_name }}
+    command:
+      - "--api.insecure={{ traefik.api_insecure }}"
+      - "--providers.docker={{ traefik.providers_docker }}"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.websecure.address={{ traefik.websecure_address }}"
+      - "--certificatesresolvers.{{ traefik_resolver }}.acme.tlschallenge={{ traefik.acme_tlschallenge }}"
+      - "--certificatesresolvers.{{ traefik_resolver }}.acme.email={{ traefik.acme_email }}"
+      - "--certificatesresolvers.{{ traefik_resolver }}.acme.storage=/letsencrypt/acme.json"
+    networks:
+      {{ docker_internal_name }}:
+        ipv4_address: "{{ docker_internal_net }}.{{ traefik.net_addr }}"
+      {{ docker_proxy_name }}:
+        ipv4_address: "{{ docker_proxy_net }}.{{ traefik.net_addr }}"
+    ports:
+      - "{{ traefik.port_https }}:443"
+      - "{{ traefik.port_dashboard }}:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+networks:
+  {{ docker_internal_name }}:
+    external: true
+  {{ docker_proxy_name }}:
+    external: true

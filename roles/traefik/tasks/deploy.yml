@@ -1,0 +1,27 @@
+- name: Удостовериться, что {{ docker_proxy_name }} существует
+  community.docker.docker_network:
+    name: "{{ docker_proxy_name }}"
+    driver: bridge
+    ipam_config:
+      - subnet: "{{ docker_proxy_ip }}"
+
+- name: Удостовериться, что {{ docker_internal_name }} существует
+  community.docker.docker_network:
+    name: "{{ docker_internal_name }}"
+    driver: bridge
+    ipam_config:
+      - subnet: "{{ docker_internal_ip }}"
+    internal: true
+
+- name: Создать директорию {{ traefik.directory }}
+  file:
+    path: "{{ traefik.directory }}"
+    state: directory
+    mode: "0744"
+
+- name: Скопировать docker-compose.yml
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ traefik.directory }}/docker-compose.yml"
+    mode: "0644"
+  notify: Положить docker-compose.yml

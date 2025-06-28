@@ -14,7 +14,7 @@ __pycache__/
 # ansible
 secrets.yml
 vault_pass.txt
-vault.yml
+*vault.yml
 inventory/host_vars/alma-server.yml
 inventory/host_vars/localhost.yml
 

@@ -1,0 +1,11 @@
+traefik:
+  container_name: "traefik"
+  directory: "/opt/traefik"
+  api_insecure: "true"
+  providers_docker: "true"
+  websecure_address: ":443"
+  acme_tlschallenge: "true"
+  acme_email: "shapkin.alexandr.sergeevich@gmail.com"
+  port_https: "443"
+  port_dashboard: "8081"
+  net_addr: "10"
