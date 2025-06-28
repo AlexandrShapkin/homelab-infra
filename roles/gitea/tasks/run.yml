@@ -1,0 +1,3 @@
+- name: Запусить контейнер с Gitea
+  command: "docker compose -f {{ gitea.directory }}/docker-compose.yml up -d"
+  

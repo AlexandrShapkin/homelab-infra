@@ -1,0 +1,17 @@
+- name: Сконфигурировать gitea и положить контейнер если требуется
+  hosts: servers
+  become: true
+  roles:
+    - role: gitea
+      vars:
+        gitea_db_manage: true
+        compose_action: "down"
+
+- name: Запустить контейнер
+  hosts: servers
+  become: true
+  roles:
+    - role: gitea
+      vars:
+        compose_action: "up"
+        gitea_db_manage: false

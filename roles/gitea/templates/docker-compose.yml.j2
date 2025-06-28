@@ -1,0 +1,35 @@
+services:
+  gitea:
+    image: "docker.gitea.com/gitea:{{ gitea.version }}"
+    container_name: "{{ gitea.container_name }}"
+    restart: unless-stopped
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE={{ gitea.db_type }}
+      - GITEA__database__HOST={{ gitea.db_host }}
+      - GITEA__database__NAME={{ gitea.db_name }}
+      - GITEA__database__USER={{ gitea.db_user }}
+      - GITEA__database__PASSWD={{ gitea_db_pass }}
+    volumes:
+      - "{{ gitea.volume_path }}:/data"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      {{ docker_internal_name }}:
+        ipv4_address: "{{ docker_internal_net }}.{{ gitea.net_addr }}"
+      {{ docker_proxy_name }}:
+        ipv4_address: "{{ docker_proxy_net }}.{{ gitea.net_addr }}"
+    ports:
+      - "{{ gitea.port_http }}:3000"
+      - "{{ gitea.port_ssh }}:22"
+    labels:
+      {% for label in gitea.labels %}
+      - "{{ label }}"
+      {% endfor %}
+
+networks:
+  {{ docker_internal_name }}:
+    external: true
+  {{ docker_proxy_name }}:
+    external: true

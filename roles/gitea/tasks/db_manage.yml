@@ -1,0 +1,25 @@
+- name: Установка зависимостей community.postgresql
+  pip:
+    name:
+      - psycopg2-binary
+    executable: "{{ pip_path }}"
+
+- name: Убедиться, что пользователь базы данных существует
+  community.postgresql.postgresql_user:
+    name: "{{ gitea.db_user }}"
+    password: "{{ gitea_db_pass }}"
+    state: present
+    login_user: "{{ postgres.user }}"
+    login_password: "{{ postgres_db_pass }}"
+    login_host: "{{ gitea.db_host_ip }}"
+    login_port: 5432
+
+- name: Убедиться, что база данных существует
+  community.postgresql.postgresql_db:
+    name: "{{ gitea.db_name }}"
+    owner: "{{ gitea.db_user }}"
+    state: present
+    login_user: "{{ postgres.user }}"
+    login_password: "{{ postgres_db_pass }}"
+    login_host: "{{ gitea.db_host_ip }}"
+    login_port: 5432
