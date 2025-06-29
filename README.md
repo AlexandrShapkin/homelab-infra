@@ -28,22 +28,22 @@
 
 ---
 
-<!-- ## 📦 Основные сервисы
+## Основные сервисы
 
-| Сервис         | Назначение                 | Сеть         | Доступ  |
-| -------------- | -------------------------- | ------------ | ------- |
-| WireGuard      | VPN-доступ                 | — (хост)     | 🔒      |
-| Docker Compose | Запуск и управление        | —            | 🔒      |
-| Caddy          | Reverse proxy, локальные домены | proxy | 🔒      |
-| Gitea          | Git-сервер                 | proxy, internal | 🔒  |
-| Woodpecker CI  | CI/CD                      | proxy, internal | 🔒  |
-| BookStack      | Wiki/документация          | proxy, internal | 🔒  |
-| Taiga          | Канбан-доска               | proxy, internal | 🔒  |
-| PostgreSQL     | База данных                | internal   | 🔒      |
-| Portainer      | Управление Docker          | proxy      | 🔒      |
-| Netdata        | Мониторинг                 | proxy      | 🔒      |
-| Restic         | Бэкапы                     | — (хост)     | 🔒      |
-| Fail2ban       | Защита от brute-force      | — (хост)     | 🔒      | -->
+| Сервис         | Назначение                      | Сеть              |
+| -------------- | ------------------------------- | ----------------- |
+| WireGuard      | VPN-доступ                      | — (хост)          |
+| Docker Compose | Запуск и управление             | —                 |
+| Traefik        | Reverse proxy, локальные домены | proxy             |
+| Gitea          | Git-сервер                      | proxy, internal   |
+| PostgreSQL     | База данных                     | internal, (proxy) |
+<!-- | Portainer      | Управление Docker               | proxy             |
+| Netdata        | Мониторинг                      | proxy             |
+| Restic         | Бэкапы                          | — (хост)          |
+| Fail2ban       | Защита от brute-force           | — (хост)          |
+| Woodpecker CI  | CI/CD                           | proxy, internal   |
+| BookStack      | Wiki/документация               | proxy, internal   |
+| Taiga          | Канбан-доска                    | proxy, internal   | -->
 
 ## Требования
 
@@ -70,11 +70,23 @@ vim inventory/hosts.yml
 echo "<пароль от хранилища>" > vault_pass.txt
 
 # 4. Создать vault с требуемой информацией
-# (см. inventory/group_vars/servers/vault.example.yml)
-ansible-vault create inventory/group_vars/servers/vault.yml
+# (см. inventory/group_vars/all/vault.example.yml)
+ansible-vault create inventory/group_vars/all/vault.yml
 
-# 5. Запустить плейбук
-ansible-playbook site.yml --ask-become-pass # запросит пароль
+# 5. Создать и заполнить хранилища сервисов <название сервиса>-vault.yml
+# (см. inventory/group_vars/all/<название сервиса>-vault.example.yml)
+ansible-vault create inventory/group_vars/all/<название сервиса>-vault.yml
+
+# 6. Создать и заполнить хранилища хостов <хост>.yml
+# (см. inventory/host_vars/<хост>.example.yml)
+ansible-vault create inventory/host_vars/<название сервиса>.yml
+
+# 7. Запустить плейбук
+ansible-playbook site.yml
 # либо
-ansible-playbook playbook/<назване плейбука>.yml --ask-become-pass # запросит пароль
+ansible-playbook playbook/<назване плейбука>.yml
+# Если в host_vars не заданы хранилища паролей для хостов,
+# то требуется использовать ключ --ask-become-pass.
+# Но это не рекомендованный вариант, так как пароли
+# для localhost и целевого хоста могут не совпадать
 ```
