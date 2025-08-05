@@ -14,4 +14,3 @@
     - role: gitea
       vars:
         compose_action: "up"
-        gitea_db_manage: false
