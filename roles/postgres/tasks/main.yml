@@ -5,3 +5,7 @@
 - name: Поднять контейнер если требуется
   include_tasks: run.yml
   when: compose_action == "up"
+
+- name: Создать базу данных
+  include_tasks: db_create.yml
+  when: db_create

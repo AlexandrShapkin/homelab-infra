@@ -12,7 +12,7 @@ services:
       {{ docker_proxy_name }}:
         ipv4_address: "{{ docker_proxy_net }}.{{ postgres.net_addr }}"
     ports:
-      - "{{ postgres.port }}:5432"
+      - "{{ postgres.port }}:{{ postgres.internal_port }}"
     volumes:
       - "{{ postgres.volume_path }}:/var/lib/postgresql/data/pgdata"
     command: >

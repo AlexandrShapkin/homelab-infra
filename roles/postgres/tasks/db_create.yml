@@ -1,0 +1,25 @@
+- name: Установка зависимостей community.postgresql
+  pip:
+    name:
+      - psycopg2-binary
+    executable: "{{ pip_path }}"
+
+- name: Убедиться, что пользователь [{{ db_user }}] базы данных существует
+  community.postgresql.postgresql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_pass }}"
+    state: present
+    login_user: "{{ postgres.user }}"
+    login_password: "{{ postgres_db_pass }}"
+    login_host: "{{ postgres.host_ip }}"
+    login_port: "{{ postgres.internal_port }}"
+
+- name: Убедиться, что база данных [{{ db_name }}] существует
+  community.postgresql.postgresql_db:
+    name: "{{ db_name }}"
+    owner: "{{ db_user }}"
+    state: present
+    login_user: "{{ postgres.user }}"
+    login_password: "{{ postgres_db_pass }}"
+    login_host: "{{ postgres.host_ip }}"
+    login_port: "{{ postgres.internal_port }}"

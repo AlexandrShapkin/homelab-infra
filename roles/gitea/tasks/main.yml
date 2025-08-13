@@ -1,7 +1,3 @@
-- name: Создать базу данных если требуется
-  include_tasks: db_manage.yml
-  when: gitea_db_manage
-
 - name: Положить контейнер если требуется
   include_tasks: deploy.yml
   when: compose_action == "down"

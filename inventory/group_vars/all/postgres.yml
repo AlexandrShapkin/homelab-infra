@@ -2,10 +2,12 @@ postgres:
   version: "latest"
   container_name: "postgres"
   directory: "/opt/postgres"
-  port: "5430"
+  port: "5432"
+  internal_port: "5432"
   user: "user"
   volume_path: "./pgdata"
   net_addr: "13"
+  host_ip: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
   resources:
     limits:
       cpus: "0.50"
