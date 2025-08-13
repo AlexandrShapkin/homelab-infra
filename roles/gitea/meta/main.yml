@@ -4,8 +4,8 @@ dependencies:
     vars:
       db_create: true
       db_list:
-        - name: "{{ db_name }}"
-          user: "{{ db_user }}"
+        - name: "{{ gitea.db_name }}"
+          user: "{{ gitea.db_user }}"
           pass: "{{ gitea_db_pass }}"
   
 
