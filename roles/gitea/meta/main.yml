@@ -3,8 +3,9 @@ dependencies:
   - role: postgres
     vars:
       db_create: true
-      db_user: "{{ db_user }}"
-      db_name: "{{ db_name }}"
-      db_pass: "{{ gitea_db_pass }}"
+      db_list:
+        - name: "{{ db_name }}"
+          user: "{{ db_user }}"
+          pass: "{{ gitea_db_pass }}"
   
 

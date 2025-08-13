@@ -6,6 +6,6 @@
   include_tasks: run.yml
   when: compose_action == "up"
 
-- name: Создать базу данных
+- name: Создать базы данных
   include_tasks: db_create.yml
-  when: db_create
+  when: db_create | bool
