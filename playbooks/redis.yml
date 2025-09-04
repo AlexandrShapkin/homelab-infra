@@ -1,0 +1,15 @@
+- name: Сконфигурировать redis и положить контейнер если требуется
+  hosts: servers
+  become: true
+  roles:
+    - role: redis
+      vars:
+        compose_action: "down"
+
+- name: Запустить контейнер
+  hosts: servers
+  become: true
+  roles:
+    - role: redis
+      vars:
+        compose_action: "up"

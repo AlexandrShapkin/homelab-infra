@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: "bitnami/redis:{{ redis.version }}"
+    restart: unless-stopped
+    environment:
+      - REDIS_DEFAULT_PORT_NUMBER={{ redis.internal_port }}
+      - REDIS_PASSWORD=$${ REDIS_PASSWORD }
+    volumes:
+      - "{{ redis.directory }}/{{ redis.data_folder }}:/bitnami/redis/data"
+    ports:
+      - "{{ redis.port }}:{{ redis.internal_port }}"
+    networks:
+      {{ docker_internal_name }}:
+        ipv4_address: "{{ docker_internal_net }}.{{ redis.net_addr }}"
+
+networks:
+  {{ docker_internal_name }}:
+    external: true

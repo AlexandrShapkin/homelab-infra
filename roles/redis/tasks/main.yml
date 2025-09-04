@@ -1,0 +1,7 @@
+- name: Положить контейнер если требуется
+  include_tasks: deploy.yml
+  when: compose_action == "down"
+
+- name: Поднять контейнер если требуется
+  include_tasks: run.yml
+  when: compose_action == "up"

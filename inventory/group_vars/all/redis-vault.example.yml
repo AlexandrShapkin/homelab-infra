@@ -1,0 +1,2 @@
+# Пароль от базы данных redis
+redis_db_pass: "secretpass"

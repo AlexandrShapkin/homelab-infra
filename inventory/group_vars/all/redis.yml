@@ -1,0 +1,15 @@
+redis:
+  # Версия образа
+  version: "latest"
+  # Название docker контейнера
+  container_name: "redis"
+  # Директория в которой будут размещены docker-compose.yml и данные
+  directory: "/opt/redis"
+  # Внешний порт
+  port: "6379"
+  # Порт внутри контейнера и во внутренней сети
+  internal_port: "6379"
+  # Название директории с данными (<directory>/<data_folder>)
+  data_folder: "data"
+  # Число последнего октета ip-адреса контейнера
+  net_addr: "14"
