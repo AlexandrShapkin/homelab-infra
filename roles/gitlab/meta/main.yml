@@ -1,0 +1,22 @@
+dependencies:
+  - role: docker
+    vars:
+      docker_networks:
+        - name: "{{ docker_internal_name }}"
+          ip: "{{ docker_internal_ip }}"
+          internal: true
+        - name: "{{ docker_proxy_name }}"
+          ip: "{{ docker_proxy_ip }}"
+          internal: false
+  - role: postgres
+    vars:
+      compose_action: "up"
+      db_create: true
+      db_list:
+        - name: "{{ gitlab.db_name }}"
+          user: "{{ gitlab.db_user }}"
+          pass: "{{ gitlab_db_pass }}"
+  - role: redis
+    vars:
+      compose_action: "up"
+  

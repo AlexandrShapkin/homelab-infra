@@ -1,0 +1,43 @@
+services:
+  gitlab:
+    image: "gitlab/gitlab-ce:{{ gitlab.version }}"
+    container_name: "{{ gitlab.container_name }}"
+    restart: unless-stopped
+    hostname: "{{ gitlab.domain_name }}"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://{{ gitlab.domain_name }}:{{ gitlab.port_http }}'
+        gitlab_rails['gitlab_shell_ssh_port'] = {{ gitlab.port_ssh }}
+        gitlab_rails['initial_root_password'] = '{{ gitlab_root_pass }}'
+        postgresql['enable'] = false
+        gitlab_rails['db_adapter'] = '{{ gitlab.db_type }}'
+        gitlab_rails['db_encoding'] = '{{ gitlab.db_encoding }}'
+        gitlab_rails['db_host'] = '{{ gitlab.db_host }}'
+        gitlab_rails['db_port'] = '{{ postgres.internal_port }}'
+        gitlab_rails['db_username'] = '{{ gitlab.db_user }}'
+        gitlab_rails['db_password'] = '{{ gitlab_db_pass }}'
+        gitlab_rails['db_database'] = '{{ gitlab.db_name }}'
+        gitlab_rails['db_pool'] = 10
+        redis['enable'] = false
+        gitlab_rails['redis_host'] = '{{ gitlab.redis_host }}'
+        gitlab_rails['redis_port'] = '{{ redis.internal_port }}'
+        gitlab_rails['redis_password'] = '{{ redis_db_pass }}'
+    ports:
+      - '{{ gitlab.port_http }}:{{ gitlab.port_internal_http }}'
+      - '{{ gitlab.port_ssh }}:{{ gitlab.port_internal_ssh }}'
+    volumes:
+      - '{{ gitlab.directory }}/config:/etc/gitlab'
+      - '{{ gitlab.directory }}/logs:/var/log/gitlab'
+      - '{{ gitlab.directory }}/data:/var/opt/gitlab'
+    networks:
+      {{ docker_internal_name }}:
+        ipv4_address: "{{ docker_internal_net }}.{{ gitea.net_addr }}"
+      {{ docker_proxy_name }}:
+        ipv4_address: "{{ docker_proxy_net }}.{{ gitea.net_addr }}"
+    shm_size: '256m'
+
+networks:
+  {{ docker_internal_name }}:
+    external: true
+  {{ docker_proxy_name }}:
+    external: true

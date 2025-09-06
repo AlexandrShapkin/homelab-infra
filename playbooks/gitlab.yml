@@ -1,0 +1,5 @@
+- name: Сконфигурировать gitlab и положить контейнер если требуется
+  hosts: servers
+  become: true
+  roles:
+    - role: gitlab

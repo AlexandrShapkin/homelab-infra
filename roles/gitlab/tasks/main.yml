@@ -1,0 +1,34 @@
+- name: Создать директорию {{ gitlab.directory }}
+  file:
+    path: "{{ gitlab.directory }}"
+    state: directory
+    mode: "0744"
+
+- name: Скопировать docker-compose.yml
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ gitlab.directory }}/docker-compose.yml"
+    mode: "0644"
+  notify: Положить gitlab docker-compose.yml
+
+- meta: flush_handlers
+
+- name: Запусить контейнер с GitLab
+  command: "docker compose -f {{ gitlab.directory }}/docker-compose.yml up -d"
+
+- name: Ждать готовности GitLab Rails
+  command: docker exec gitlab gitlab-rails runner "puts 'ok'"
+  register: gitlab_ready
+  retries: 30
+  delay: 10
+  until: gitlab_ready.rc == 0
+
+- name: Убедиться, что партишены созданы до текущего месяца
+  command: docker exec gitlab gitlab-rake gitlab:db:create_dynamic_partitions
+
+- name: Задать cron задачу на проверку партишенов
+  cron:
+    name: "GitLab ensure partitions"
+    job: "docker exec gitlab gitlab-rake gitlab:db:create_dynamic_partitions"
+    minute: "0"
+    hour: "2"
