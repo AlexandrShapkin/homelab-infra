@@ -11,7 +11,7 @@
     state: present
     login_user: "{{ postgres.user }}"
     login_password: "{{ postgres_db_pass }}"
-    login_host: "{{ postgres.host_ip }}"
+    login_host: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
     login_port: "{{ postgres.internal_port }}"
   loop: "{{ db_list }}"
 
@@ -22,6 +22,6 @@
     state: present
     login_user: "{{ postgres.user }}"
     login_password: "{{ postgres_db_pass }}"
-    login_host: "{{ postgres.host_ip }}"
+    login_host: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
     login_port: "{{ postgres.internal_port }}"
   loop: "{{ db_list }}"
