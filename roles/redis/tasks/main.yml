@@ -1,7 +1,32 @@
-- name: Положить контейнер если требуется
-  include_tasks: deploy.yml
-  when: compose_action == "down"
+- name: Убедиться, что директория {{ redis.directory }} существует
+  file:
+    path: "{{ redis.directory }}"
+    state: directory
+    mode: '0755'
 
-- name: Поднять контейнер если требуется
-  include_tasks: run.yml
-  when: compose_action == "up"
+- name: Убедиться, что директория {{ redis.directory }}/{{ redis.data_folder }} существует
+  file:
+    path: "{{ redis.directory }}/{{ redis.data_folder }}"
+    state: directory
+    owner: 1001
+    group: 1001
+    mode: '0766'
+
+- name: Создать .env файл
+  template:
+    src: "env.j2"
+    dest: "{{ redis.directory }}/.env"
+    mode: '0600'
+
+- name: Скопировать docker-compose.yml
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ redis.directory }}/docker-compose.yml"
+    mode: "0644"
+  notify: Положить redis docker-compose.yml
+
+- meta: flush_handlers
+
+- name: Запусить контейнер с Redis
+  command: "docker compose -f {{ redis.directory }}/docker-compose.yml up -d"
+  

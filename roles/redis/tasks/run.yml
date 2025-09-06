@@ -1,3 +1,0 @@
-- name: Запусить контейнер с Redis
-  command: "docker compose -f {{ redis.directory }}/docker-compose.yml up -d"
-  
