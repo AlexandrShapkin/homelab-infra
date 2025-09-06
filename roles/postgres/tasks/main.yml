@@ -1,10 +1,27 @@
-- name: Положить контейнер если требуется
-  include_tasks: deploy.yml
-  when: compose_action == "down"
+- name: Создать директорию {{ postgres.directory }}
+  file:
+    path: "{{ postgres.directory }}"
+    state: directory
+    mode: "0744"
 
-- name: Поднять контейнер если требуется
-  include_tasks: run.yml
-  when: compose_action == "up"
+- name: Скопировать docker-compose.yml
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ postgres.directory }}/docker-compose.yml"
+    mode: "0644"
+  notify: Положить postgres docker-compose.yml
+
+- name: Открыть порт {{ postgres.port }} в firewalld
+  firewalld:
+    port: "{{ postgres.port }}/tcp"
+    permanent: yes
+    state: enabled
+    immediate: yes
+
+- meta: flush_handlers
+
+- name: Запусить контейнер с Postgres
+  command: "docker compose -f {{ postgres.directory }}/docker-compose.yml up -d"
 
 - name: Создать базы данных
   include_tasks: db_create.yml
