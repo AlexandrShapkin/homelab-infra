@@ -12,17 +12,12 @@
       - requests
     executable: "{{ pip_path }}"
 
-- name: Создание internal-сети
-  community.docker.docker_network:
-    name: "{{ docker_internal_name }}"
-    driver: bridge
-    ipam_config:
-      - subnet: "{{ docker_internal_ip }}"
-    internal: true
+- name: Проверка и создание Docker-сетей
+  ansible.builtin.shell: |
+    if ! docker network ls --filter name=^{{ item.name }}$ --format '{{'{{'}}.Name{{'}}'}}' | grep -q '^{{ item.name }}$'; then
+      docker network create --driver bridge --subnet {{ item.ip }} {% if item.internal | default(false) %}--internal{% endif %} {{ item.name }}
+    fi
+  loop: "{{ docker_networks }}"
+  loop_control:
+    label: "{{ item.name }}"
 
-- name: Создание proxy-сети
-  community.docker.docker_network:
-    name: "{{ docker_proxy_name }}"
-    driver: bridge
-    ipam_config:
-      - subnet: "{{ docker_proxy_ip }}"
