@@ -14,4 +14,6 @@ docker_proxy_name: "proxy_net"
 
 traefik_resolver: "letsencrypt"
 
-pip_path: "/usr/bin/pip3.12"
+root_domain: "alexandrshapkin.ru"
+
+pip_path: "/usr/bin/pip3"
