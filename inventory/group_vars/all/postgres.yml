@@ -7,7 +7,6 @@ postgres:
   user: "user"
   volume_path: "./pgdata"
   net_addr: "13"
-  host_ip: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
   resources:
     limits:
       cpus: "0.50"
