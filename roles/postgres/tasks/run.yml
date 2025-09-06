@@ -1,3 +1,0 @@
-- name: Запусить контейнер с Postgres
-  command: "docker compose -f {{ postgres.directory }}/docker-compose.yml up -d"
-  
