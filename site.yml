@@ -1,5 +1,13 @@
 - import_playbook: "playbooks/wireguard.yml"
+
 - import_playbook: "playbooks/docker.yml"
+
 - import_playbook: "playbooks/postgres.yml"
+
 - import_playbook: "playbooks/gitea.yml"
+  tags: "gitea"
+
+- import_playbook: "playbooks/gitlab.yml"
+  tags: "gitlab"
+
 - import_playbook: "playbooks/traefik.yml"
