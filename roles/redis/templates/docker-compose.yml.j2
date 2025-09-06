@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     environment:
       - REDIS_DEFAULT_PORT_NUMBER={{ redis.internal_port }}
-      - REDIS_PASSWORD=$${ REDIS_PASSWORD }
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
     volumes:
       - "{{ redis.directory }}/{{ redis.data_folder }}:/bitnami/redis/data"
     ports:
