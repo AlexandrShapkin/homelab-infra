@@ -1,18 +1,3 @@
-- name: Удостовериться, что {{ docker_proxy_name }} существует
-  community.docker.docker_network:
-    name: "{{ docker_proxy_name }}"
-    driver: bridge
-    ipam_config:
-      - subnet: "{{ docker_proxy_ip }}"
-
-- name: Удостовериться, что {{ docker_internal_name }} существует
-  community.docker.docker_network:
-    name: "{{ docker_internal_name }}"
-    driver: bridge
-    ipam_config:
-      - subnet: "{{ docker_internal_ip }}"
-    internal: true
-
 - name: Создать директорию {{ traefik.directory }}
   file:
     path: "{{ traefik.directory }}"

@@ -1,0 +1,10 @@
+dependencies:
+  - role: docker
+    vars:
+      docker_networks:
+        - name: "{{ docker_internal_name }}"
+          ip: "{{ docker_internal_ip }}"
+          internal: true
+        - name: "{{ docker_proxy_name }}"
+          ip: "{{ docker_proxy_ip }}"
+          internal: false
