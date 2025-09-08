@@ -24,4 +24,4 @@
     src: "docker-compose.yml.j2"
     dest: "{{ traefik.directory }}/docker-compose.yml"
     mode: "0644"
-  notify: Положить docker-compose.yml
+  notify: Положить traefik docker-compose.yml
