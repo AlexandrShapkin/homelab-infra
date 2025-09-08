@@ -35,6 +35,10 @@ services:
       {{ docker_proxy_name }}:
         ipv4_address: "{{ docker_proxy_net }}.{{ gitea.net_addr }}"
     shm_size: '256m'
+    labels:
+      {% for label in gitlab.labels %}
+      - "{{ label }}"
+      {% endfor %}
 
 networks:
   {{ docker_internal_name }}:

@@ -6,6 +6,7 @@ gitlab:
   port_internal_http: "8929"
   port_ssh: "22"
   port_internal_ssh: "22"
+  signup_enabled: false
   directory: "/opt/gitlab"
   db_type: "postgresql"
   db_user: "gitlab"
@@ -13,3 +14,9 @@ gitlab:
   db_encoding: "utf8"
   db_host: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
   redis_host: "{{ docker_internal_net }}.{{ redis.net_addr }}"
+  labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.gitlab.rule=Host(`gitlab.{{ root_domain }}`)"
+    - "traefik.http.routers.gitlab.entrypoints=websecure"
+    - "traefik.http.routers.gitlab.tls.certresolver={{ traefik_resolver }}"
+    - "traefik.http.services.gitlab.loadbalancer.server.port=8929"
