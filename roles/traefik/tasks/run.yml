@@ -1,2 +1,0 @@
-- name: Запусить контейнер с Traefik
-  command: "docker compose -f {{ traefik.directory }}/docker-compose.yml up -d"
