@@ -4,6 +4,12 @@
     state: directory
     mode: "0744"
 
+- name: Создать .env файл
+  template:
+    src: "env.j2"
+    dest: "{{ postgres.directory }}/.env"
+    mode: '0600'
+
 - name: Скопировать docker-compose.yml
   template:
     src: "docker-compose.yml.j2"

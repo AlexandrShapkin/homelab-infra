@@ -10,7 +10,7 @@ services:
       - GITEA__database__HOST={{ gitea.db_host }}
       - GITEA__database__NAME={{ gitea.db_name }}
       - GITEA__database__USER={{ gitea.db_user }}
-      - GITEA__database__PASSWD={{ gitea_db_pass }}
+      - GITEA__database__PASSWD=${DB_PASSWORD}
     volumes:
       - "{{ gitea.volume_path }}:/data"
       - "/etc/timezone:/etc/timezone:ro"

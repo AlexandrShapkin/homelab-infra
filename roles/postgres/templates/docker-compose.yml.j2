@@ -4,7 +4,7 @@ services:
     container_name: "{{ postgres.container_name }}"
     environment:
       POSTGRES_USER: "{{ postgres.user }}"
-      POSTGRES_PASSWORD: "{{ postgres_db_pass }}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     networks:
       {{ docker_internal_name }}:

@@ -8,20 +8,20 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://{{ gitlab.domain_name }}:{{ gitlab.port_http }}'
         gitlab_rails['gitlab_shell_ssh_port'] = {{ gitlab.port_ssh }}
-        gitlab_rails['initial_root_password'] = '{{ gitlab_root_pass }}'
+        gitlab_rails['initial_root_password'] = '${ROOT_PASSWORD}'
         postgresql['enable'] = false
         gitlab_rails['db_adapter'] = '{{ gitlab.db_type }}'
         gitlab_rails['db_encoding'] = '{{ gitlab.db_encoding }}'
         gitlab_rails['db_host'] = '{{ gitlab.db_host }}'
         gitlab_rails['db_port'] = '{{ postgres.internal_port }}'
         gitlab_rails['db_username'] = '{{ gitlab.db_user }}'
-        gitlab_rails['db_password'] = '{{ gitlab_db_pass }}'
+        gitlab_rails['db_password'] = '${DB_PASSWORD}'
         gitlab_rails['db_database'] = '{{ gitlab.db_name }}'
         gitlab_rails['db_pool'] = 10
         redis['enable'] = false
         gitlab_rails['redis_host'] = '{{ gitlab.redis_host }}'
         gitlab_rails['redis_port'] = '{{ redis.internal_port }}'
-        gitlab_rails['redis_password'] = '{{ redis_db_pass }}'
+        gitlab_rails['redis_password'] = '${REDIS_PASSWORD}'
     ports:
       - '{{ gitlab.port_http }}:{{ gitlab.port_internal_http }}'
       - '{{ gitlab.port_ssh }}:{{ gitlab.port_internal_ssh }}'
