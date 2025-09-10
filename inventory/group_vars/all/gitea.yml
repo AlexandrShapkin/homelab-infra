@@ -4,7 +4,7 @@ gitea:
   data_folder: "data" 
   directory: "/opt/gitea"
   inner_data_path: "/data"
-  port_ssh: "2221"
+  port_ssh: "22"
   port_http: "8080"
   db_type: "postgres"
   db_user: "gitea"
