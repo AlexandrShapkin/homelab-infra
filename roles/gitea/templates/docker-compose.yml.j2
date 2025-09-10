@@ -12,7 +12,7 @@ services:
       - GITEA__database__USER={{ gitea.db_user }}
       - GITEA__database__PASSWD=${DB_PASSWORD}
     volumes:
-      - "{{ gitea.volume_path }}:/data"
+      - "{{ gitea.directory }}/{{ gitea.data_folder }}:{{ gitea.inner_data_path }}"
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
     networks:
