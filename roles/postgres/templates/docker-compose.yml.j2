@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: "{{ postgres.user }}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
+      PGDATA: "{{ postgres.inner_data_path }}"
     networks:
       {{ docker_internal_name }}:
         ipv4_address: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
@@ -14,7 +14,7 @@ services:
     ports:
       - "{{ postgres.port }}:{{ postgres.internal_port }}"
     volumes:
-      - "{{ postgres.volume_path }}:/var/lib/postgresql/data/pgdata"
+      - "{{ postgres.directory }}/{{ postgres.data_folder }}:{{ postgres.inner_data_path }}"
     command: >
       postgres -c listen_addresses='*'
                -c max_connections={{ postgres.max_connections }}

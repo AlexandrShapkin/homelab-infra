@@ -5,7 +5,8 @@ postgres:
   port: "5432"
   internal_port: "5432"
   user: "user"
-  volume_path: "./pgdata"
+  data_folder: "data"
+  inner_data_path: "/var/lib/postgresql/data/pgdata"
   net_addr: "13"
   resources:
     limits:
