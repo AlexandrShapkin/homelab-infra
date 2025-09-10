@@ -9,8 +9,7 @@ gitea:
   db_type: "postgres"
   db_user: "gitea"
   db_name: "gitea"
-  db_host_ip: "{{ docker_internal_net }}.{{ postgres.net_addr }}"
-  db_host: "{{ docker_internal_net }}.{{ postgres.net_addr }}:5432"
+  db_host: "{{ docker_internal_net }}.{{ postgres.net_addr }}:{{ postgres.internal_port }}"
   net_addr: "20"
   labels:
     - "traefik.enable=true"
