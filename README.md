@@ -35,7 +35,7 @@
 | WireGuard      | VPN-доступ                      | — (хост)          |
 | Docker Compose | Запуск и управление             | —                 |
 | Traefik        | Reverse proxy, локальные домены | proxy             |
-| Gitea          | Git-сервер                      | proxy, internal   |
+| Gitea | GitLab | Git-сервер                      | proxy, internal   |
 | PostgreSQL     | База данных                     | internal, (proxy) |
 <!-- | Portainer      | Управление Docker               | proxy             |
 | Netdata        | Мониторинг                      | proxy             |
@@ -50,8 +50,9 @@
 - Целевая система AlmaLinux 10
 - Ansible 2.18.5 (на момент начала проекта)
 - Docker 28.2.2 (на момент начала проекта)
-<!-- - Docker Compose v2 -->
-<!-- - Git -->
+- Docker Compose v2
+- Git
+- Python > 3.12
 
 
 ---
