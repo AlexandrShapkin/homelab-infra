@@ -35,7 +35,7 @@
 | WireGuard      | VPN-доступ                      | — (хост)          |
 | Docker Compose | Запуск и управление             | —                 |
 | Traefik        | Reverse proxy, локальные домены | proxy             |
-| Gitea | GitLab | Git-сервер                      | proxy, internal   |
+| Gitea/GitLab   | Git-сервер                      | proxy, internal   |
 | PostgreSQL     | База данных                     | internal, (proxy) |
 <!-- | Portainer      | Управление Docker               | proxy             |
 | Netdata        | Мониторинг                      | proxy             |
