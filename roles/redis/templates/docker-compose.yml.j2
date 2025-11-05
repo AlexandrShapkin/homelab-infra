@@ -1,6 +1,6 @@
 services:
   redis:
-    image: "bitnami/redis:{{ redis.version }}"
+    image: "bitnamilegacy/redis:{{ redis.version }}"
     restart: unless-stopped
     environment:
       - REDIS_DEFAULT_PORT_NUMBER={{ redis.internal_port }}

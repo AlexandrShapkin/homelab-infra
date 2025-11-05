@@ -1,6 +1,6 @@
 redis:
   # Версия образа
-  version: "latest"
+  version: "8.2.1"
   # Название docker контейнера
   container_name: "redis"
   # Директория в которой будут размещены docker-compose.yml и данные
