@@ -1,0 +1,17 @@
+- name: Создать директорию {{ gitlab.directory }}
+  file:
+    path: "{{ gitlab.directory }}"
+    state: directory
+    mode: "0744"
+
+- name: Скопировать docker-compose.yml
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ gitlab.directory }}/docker-compose.yml"
+    mode: "0644"
+  notify: Положить gitlab docker-compose.yml
+
+- meta: flush_handlers
+
+- name: Запусить контейнер с GitLab
+  command: "docker compose -f {{ gitlab.directory }}/docker-compose.yml up -d"
