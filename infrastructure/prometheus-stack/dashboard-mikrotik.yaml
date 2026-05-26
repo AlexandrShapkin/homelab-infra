@@ -144,7 +144,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -208,7 +208,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_identity_info{routerboard_name=\"$node\"}  ",
@@ -224,7 +224,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -288,7 +288,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -304,7 +304,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -398,7 +398,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_installed_packages_info{routerboard_name=\"$node\"}",
@@ -448,7 +448,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -528,7 +528,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "(1 - mktxp_system_free_memory{routerboard_name=\"$node\"} / mktxp_system_total_memory{routerboard_name=\"$node\"})*100",
@@ -557,7 +557,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_cpu_load{routerboard_name=\"$node\"}",
@@ -569,7 +569,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "(1 - mktxp_system_free_hdd_space{routerboard_name=\"$node\"} / mktxp_system_total_hdd_space{routerboard_name=\"$node\"})*100",
@@ -584,7 +584,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -680,7 +680,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_cpu_load{routerboard_name=\"$node\"}",
@@ -712,7 +712,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -875,7 +875,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_cpu_frequency{routerboard_name=\"$node\"}*1000000",
@@ -907,7 +907,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -956,7 +956,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -974,7 +974,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -1038,7 +1038,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_routerboard_temperature{routerboard_name=\"$node\"}  ",
@@ -1050,7 +1050,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_cpu_temperature{routerboard_name=\"$node\"}  ",
@@ -1066,7 +1066,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -1132,7 +1132,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -1161,7 +1161,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_update_available{routerboard_name=\"$node\"}",
@@ -1178,7 +1178,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -1244,7 +1244,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_uptime{routerboard_name=\"$node\"}",
@@ -1277,7 +1277,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -1376,7 +1376,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_active_users_info{routerboard_name=\"$node\"}",
@@ -1427,7 +1427,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -1588,7 +1588,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_total_hdd_space{routerboard_name=\"$node\"} - mktxp_system_free_hdd_space{routerboard_name=\"$node\"}",
@@ -1619,7 +1619,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_total_hdd_space{routerboard_name=\"$node\"}",
@@ -1651,7 +1651,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -1708,7 +1708,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_system_routerboard_voltage{routerboard_name=\"$node\"}",
@@ -1741,7 +1741,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -1805,7 +1805,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
@@ -1821,7 +1821,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -1885,7 +1885,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
@@ -1897,7 +1897,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_public_ip_address_info{routerboard_name=\"$node\"}",
@@ -1927,7 +1927,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -1996,7 +1996,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_ip_pool_used{routerboard_name=\"$node\"} ",
@@ -2029,7 +2029,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -2159,7 +2159,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_dhcp_lease_info{routerboard_name=\"$node\"}",
@@ -2214,7 +2214,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -2283,7 +2283,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_dhcp_lease_active_count{routerboard_name=\"$node\"}",
@@ -2316,7 +2316,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -2385,7 +2385,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "sum(mktxp_dhcp_lease_active_count{routerboard_name=\"$node\"})",
@@ -2431,7 +2431,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -2498,7 +2498,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_routes_total_routes{routerboard_name=\"$node\"}",
@@ -2515,7 +2515,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -2577,7 +2577,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_routes_protocol_count{routerboard_name=\"$node\"}",
@@ -2610,7 +2610,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -2686,7 +2686,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_interface_full_duplex{routerboard_name=\"$node\"}",
@@ -2703,7 +2703,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -2807,7 +2807,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_interface_rx_error_total{routerboard_name=\"$node\"}[4m])",
@@ -2836,7 +2836,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_interface_tx_error_total{routerboard_name=\"$node\"}[4m])",
@@ -2855,7 +2855,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -2931,7 +2931,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_interface_status{routerboard_name=\"$node\"}",
@@ -2948,7 +2948,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -2997,7 +2997,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_interface_rate{routerboard_name=\"$node\"}",
@@ -3038,7 +3038,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -3167,7 +3167,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_poe_info{routerboard_name=\"$node\"}",
@@ -3225,7 +3225,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -3352,7 +3352,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_interface_rx_byte_total{routerboard_name=\"$node\"}[4m])*8",
@@ -3384,7 +3384,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_interface_tx_byte_total{routerboard_name=\"$node\"}[4m])*8",
@@ -3430,7 +3430,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -3492,7 +3492,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_firewall_address_list_all_count{routerboard_name=\"$node\"}",
@@ -3525,7 +3525,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -3587,7 +3587,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_firewall_address_list_selected_count{routerboard_name=\"$node\"}",
@@ -3620,7 +3620,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -3707,7 +3707,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_firewall_address_list{routerboard_name=\"$node\"}",
@@ -3766,7 +3766,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -3878,7 +3878,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_connection_stats{routerboard_name=\"$node\"}",
@@ -3928,7 +3928,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -4029,7 +4029,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -4047,7 +4047,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -4142,7 +4142,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_firewall_filter_total{routerboard_name=\"$node\", log=\"1\"}[4m])*8",
@@ -4175,7 +4175,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -4270,7 +4270,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_firewall_raw_total{routerboard_name=\"$node\", log=\"1\"}[4m])*8",
@@ -4303,7 +4303,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -4398,7 +4398,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_firewall_filter_total{routerboard_name=\"$node\"}[4m])*8",
@@ -4431,7 +4431,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -4526,7 +4526,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_firewall_raw_total{routerboard_name=\"$node\"}[4m])*8",
@@ -4572,7 +4572,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -4653,7 +4653,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "max_over_time(mktxp_netwatch_status{routerboard_name=\"$node\"}[1m])",
@@ -4686,7 +4686,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -4777,7 +4777,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_netwatch_info{routerboard_name=\"$node\"}",
@@ -4848,7 +4848,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -4977,7 +4977,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_noise_floor{routerboard_name=\"$node\"}",
@@ -4993,7 +4993,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -5123,7 +5123,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_overall_tx_ccq{routerboard_name=\"$node\"}",
@@ -5139,7 +5139,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -5260,7 +5260,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_clients_devices_info{routerboard_name=\"$node\"}",
@@ -5310,7 +5310,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -5439,7 +5439,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_registered_clients{routerboard_name=\"$node\"}",
@@ -5455,7 +5455,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -5562,7 +5562,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_clients_tx_ccq{routerboard_name=\"$node\"}",
@@ -5578,7 +5578,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -5734,7 +5734,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_wlan_clients_tx_bytes_total{routerboard_name=\"$node\"}[4m])",
@@ -5766,7 +5766,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_wlan_clients_rx_bytes_total{routerboard_name=\"$node\"}[4m])",
@@ -5799,7 +5799,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -5886,7 +5886,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -5919,7 +5919,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "fieldConfig": {
                 "defaults": {
@@ -6006,7 +6006,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_wlan_clients_signal_to_noise{routerboard_name=\"$node\"}",
@@ -6056,7 +6056,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -6144,7 +6144,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_capsman_remote_caps_info{routerboard_name=\"$node\"}",
@@ -6191,7 +6191,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -6308,7 +6308,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_capsman_clients_devices_info{routerboard_name=\"$node\"}",
@@ -6360,7 +6360,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -6429,7 +6429,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_capsman_registrations_count{routerboard_name=\"$node\"}",
@@ -6458,7 +6458,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "sum(mktxp_capsman_registrations_count{routerboard_name=\"$node\"})",
@@ -6474,7 +6474,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -6552,7 +6552,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_capsman_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -6585,7 +6585,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -6678,7 +6678,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_capsman_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -6711,7 +6711,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -6837,7 +6837,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_capsman_clients_tx_bytes_total{routerboard_name=\"$node\"}[4m])*8",
@@ -6869,7 +6869,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_capsman_clients_rx_bytes_total{routerboard_name=\"$node\"}[4m])*8",
@@ -6912,7 +6912,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7015,7 +7015,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_simple_rates_download_total{routerboard_name=\"$node\"}*8",
@@ -7047,7 +7047,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_simple_rates_upload_total{routerboard_name=\"$node\"}*8",
@@ -7080,7 +7080,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7185,7 +7185,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_simple_bytes_download_total{routerboard_name=\"$node\"}",
@@ -7217,7 +7217,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_simple_bytes_upload_total{routerboard_name=\"$node\"}",
@@ -7250,7 +7250,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7355,7 +7355,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_simple_queued_bytes_upload_total{routerboard_name=\"$node\"}[4m])",
@@ -7387,7 +7387,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_simple_queued_bytes_upload_total{routerboard_name=\"$node\"}[4m])",
@@ -7420,7 +7420,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7525,7 +7525,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_simple_dropped_download_total{routerboard_name=\"$node\"}[4m])",
@@ -7557,7 +7557,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_simple_dropped_upload_total{routerboard_name=\"$node\"}[4m])",
@@ -7604,7 +7604,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7707,7 +7707,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_tree_rates_total{routerboard_name=\"$node\"}*8",
@@ -7740,7 +7740,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7845,7 +7845,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "mktxp_queue_tree_bytes_total{routerboard_name=\"$node\"}",
@@ -7878,7 +7878,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -7983,7 +7983,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_tree_queued_bytes_total{routerboard_name=\"$node\"}[4m])",
@@ -8016,7 +8016,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "description": "",
               "fieldConfig": {
@@ -8121,7 +8121,7 @@ data:
                   },
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_PROMETHEUS}"
+                    "uid": "Prometheus"
                   },
                   "editorMode": "code",
                   "expr": "rate(mktxp_queue_tree_dropped_total{routerboard_name=\"$node\"}[4m])",
@@ -8171,7 +8171,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -8312,7 +8312,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_kid_control_device_info{routerboard_name=\"$node\"}",
@@ -8370,7 +8370,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -8501,7 +8501,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_kid_control_device_rate_down{routerboard_name=\"$node\"}*8",
@@ -8530,7 +8530,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_kid_control_device_rate_up{routerboard_name=\"$node\"}*8",
@@ -8547,7 +8547,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -8645,7 +8645,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "mktxp_kid_control_device_idle_time{routerboard_name=\"$node\"}",
@@ -8678,7 +8678,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -8806,7 +8806,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_kid_control_device_bytes_down_total{routerboard_name=\"$node\"}[4m])*8",
@@ -8838,7 +8838,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_kid_control_device_bytes_up_total{routerboard_name=\"$node\"}[4m])*8",
@@ -8884,7 +8884,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -8958,7 +8958,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m])  ",
@@ -8991,7 +8991,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -9083,7 +9083,7 @@ data:
               },
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m])",
@@ -9112,7 +9112,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "editorMode": "code",
               "expr": "sum(rate(mktxp_collection_time_total{routerboard_name=\"$node\"}[4m]))",
@@ -9128,7 +9128,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -9220,7 +9220,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "expr": "mktxp_internet_bandwidth",
               "instant": false,
@@ -9235,7 +9235,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "Prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -9327,7 +9327,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "Prometheus"
               },
               "expr": "mktxp_internet_latency",
               "instant": false,
@@ -9353,7 +9353,7 @@ data:
             "current": {},
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "definition": "label_values(mktxp_system_identity_info, routerboard_name)",
             "includeAll": false,
@@ -9373,7 +9373,7 @@ data:
             "baseFilters": [],
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "filters": [],
             "name": "Filters",
