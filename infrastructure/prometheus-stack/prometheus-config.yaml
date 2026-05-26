@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: monitoring
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 30s
+      evaluation_interval: 30s
+
+    scrape_configs:
+
+      # Prometheus
+      - job_name: prometheus
+        static_configs:
+          - targets: ['localhost:9090']
+
+      # Node Exporter
+      - job_name: node-exporter
+        kubernetes_sd_configs:
+          - role: node
+        relabel_configs:
+          - source_labels: [__address__]
+            regex: '(.*):10250'
+            replacement: '${1}:9100'
+            target_label: __address__
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+
+      # Node Exporter — внешние машины
+      - job_name: node-exporter-external
+        static_configs:
+          - targets: ['fi.alexandrshapkin.ru:9100']
+            labels:
+              hostname: fi.alexandrshapkin.ru
+          - targets: ['ru.alexandrshapkin.ru:9100']
+            labels:
+              hostname: ru.alexandrshapkin.ru
+
+      # MikroTik Exporter
+      # - job_name: mikrotik
+      #   static_configs:
+      #     - targets:
+      #         - mikrotik-exporter:9436
