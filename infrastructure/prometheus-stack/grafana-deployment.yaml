@@ -75,3 +75,13 @@ spec:
         - name: datasources
           configMap:
             name: grafana-datasources
+        - name: dashboard-provider
+          configMap:
+            name: grafana-dashboard-provider
+        - name: dashboards
+          projected:
+            sources:
+              - configMap:
+                  name: dashboard-node-exporter
+              # - configMap:
+              #     name: dashboard-mikrotik
