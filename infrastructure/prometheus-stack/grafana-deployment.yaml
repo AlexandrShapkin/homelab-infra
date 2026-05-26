@@ -21,7 +21,7 @@ spec:
         runAsNonRoot: true
       containers:
         - name: grafana
-          image: grafana/grafana:main-distroless
+          image: grafana/grafana:latest
           ports:
             - containerPort: 3000
               name: http
