@@ -28,15 +28,18 @@ data:
           - action: labelmap
             regex: __meta_kubernetes_node_label_(.+)
 
-      # Node Exporter — внешние машины
+      # Node Exporter External
       - job_name: node-exporter-external
         static_configs:
-          - targets: ['fi.alexandrshapkin.ru:9100']
-            labels:
-              hostname: fi.alexandrshapkin.ru
-          - targets: ['ru.alexandrshapkin.ru:9100']
-            labels:
-              hostname: ru.alexandrshapkin.ru
+          - targets:
+              - 'fi.alexandrshapkin.ru:9100'
+              - 'ru.alexandrshapkin.ru:9100'
+        relabel_configs:
+          - source_labels: [__address__]
+            regex: '([^:]+):\d+'
+            target_label: instance
+          - source_labels: [__address__]
+            target_label: __address__
 
       # MikroTik Exporter
       # - job_name: mikrotik
