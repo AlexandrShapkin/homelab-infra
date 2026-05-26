@@ -15,6 +15,24 @@ spec:
       labels:
         app: mikrotik-exporter
     spec:
+      initContainers:
+        - name: copy-config
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              cp /config-global/_mktxp.conf /mktxp-config/_mktxp.conf
+              cp /config-router/mktxp.conf /mktxp-config/mktxp.conf
+              chmod 644 /mktxp-config/_mktxp.conf
+              chmod 644 /mktxp-config/mktxp.conf
+          volumeMounts:
+            - name: global-config
+              mountPath: /config-global
+            - name: router-config
+              mountPath: /config-router
+            - name: mktxp-workdir
+              mountPath: /mktxp-config
       containers:
         - name: mikrotik-exporter
           image: ghcr.io/akpw/mktxp:latest
@@ -22,12 +40,8 @@ spec:
             - containerPort: 49090
               name: metrics
           volumeMounts:
-            - name: global-config
-              mountPath: /home/mktxp/mktxp/_mktxp.conf
-              subPath: _mktxp.conf
-            - name: router-config
-              mountPath: /home/mktxp/mktxp/mktxp.conf
-              subPath: mktxp.conf
+            - name: mktxp-workdir
+              mountPath: /home/mktxp/mktxp
           resources:
             requests:
               cpu: 20m
@@ -48,4 +62,5 @@ spec:
         - name: router-config
           secret:
             secretName: mikrotik-credentials
-            
+        - name: mktxp-workdir
+          emptyDir: {}
