@@ -45,4 +45,4 @@ data:
       - job_name: mikrotik
         static_configs:
           - targets:
-              - mikrotik-exporter:9436
+              - 'mikrotik-exporter:9436'
