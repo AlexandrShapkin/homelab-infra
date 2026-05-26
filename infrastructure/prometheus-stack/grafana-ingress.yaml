@@ -5,7 +5,12 @@ metadata:
   namespace: monitoring
   annotations:
     kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  tls:
+    - hosts:
+        - grafana.alexandrshapkin.ru
+      secretName: grafana-tls
   rules:
     - host: grafana.alexandrshapkin.ru
       http:
@@ -17,3 +22,4 @@ spec:
                 name: grafana
                 port:
                   number: 3000
+                  
