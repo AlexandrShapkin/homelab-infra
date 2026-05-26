@@ -17,7 +17,7 @@ data:
         max_worker_threads = 5
         max_scrape_duration = 10
         total_max_scrape_duration = 30
-        verbose_mode = False
+        verbose_mode = True
         fetch_routers_in_parallel = False
         compact_default_conf_values = True
         persistent_router_connection_pool = False
