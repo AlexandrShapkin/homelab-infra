@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mikrotik-exporter
+  namespace: monitoring
+  labels:
+    app: mikrotik-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mikrotik-exporter
+  template:
+    metadata:
+      labels:
+        app: mikrotik-exporter
+    spec:
+      containers:
+        - name: mikrotik-exporter
+          image: ghcr.io/akpw/mktxp:latest
+          ports:
+            - containerPort: 49090
+              name: metrics
+          volumeMounts:
+            - name: global-config
+              mountPath: /home/mktxp/mktxp/_mktxp.conf
+              subPath: _mktxp.conf
+            - name: router-config
+              mountPath: /home/mktxp/mktxp/mktxp.conf
+              subPath: mktxp.conf
+          resources:
+            requests:
+              cpu: 20m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: 49090
+            initialDelaySeconds: 15
+            periodSeconds: 15
+      volumes:
+        - name: global-config
+          configMap:
+            name: mikrotik-exporter-config
+        - name: router-config
+          secret:
+            secretName: mikrotik-credentials
+            
