@@ -1,2 +1,0 @@
-- name: Положить traefik docker-compose.yml
-  command: "docker compose -f {{ traefik.directory }}/docker-compose.yml down"

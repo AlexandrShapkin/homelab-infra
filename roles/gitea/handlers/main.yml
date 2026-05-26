@@ -1,2 +1,0 @@
-- name: Положить docker-compose.yml
-  command: "docker compose -f {{ gitea.directory }}/docker-compose.yml down"

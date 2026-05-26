@@ -1,2 +1,0 @@
-- name: Положить redis docker-compose.yml
-  command: "docker compose -f {{ redis.directory }}/docker-compose.yml down"

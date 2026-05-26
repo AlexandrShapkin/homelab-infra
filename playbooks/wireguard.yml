@@ -1,8 +1,0 @@
-- name: Установка и конфигурация WireGuard
-  hosts: servers
-  become: true
-  vars_files:
-    - "../inventory/group_vars/servers/vault.yml"
-  roles:
-    - wireguard
-

@@ -1,2 +1,0 @@
-- name: Положить gitlab docker-compose.yml
-  command: "docker compose -f {{ gitlab.directory }}/docker-compose.yml down"

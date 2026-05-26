@@ -1,5 +1,0 @@
-- name: Сконфигурировать redis и положить контейнер если требуется, затем запустить
-  hosts: servers
-  become: true
-  roles:
-    - role: redis
