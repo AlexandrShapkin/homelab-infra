@@ -42,7 +42,7 @@ data:
             target_label: __address__
 
       # MikroTik Exporter
-      # - job_name: mikrotik
-      #   static_configs:
-      #     - targets:
-      #         - mikrotik-exporter:9436
+      - job_name: mikrotik
+        static_configs:
+          - targets:
+              - mikrotik-exporter:9436
